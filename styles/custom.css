@@ -1,0 +1,19 @@
+html, body, #__next {
+  height: 100%;
+}
+
+.below-canvas {
+  @apply z-[-5];
+}
+
+canvas {
+  @apply z-[-1];
+}
+
+.above-canvas {
+  @apply z-[5];
+}
+
+.w-fit-content {
+  width: fit-content;
+}

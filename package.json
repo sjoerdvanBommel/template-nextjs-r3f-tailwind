@@ -7,14 +7,20 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@react-three/drei": "latest",
+    "@react-three/fiber": "latest",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "three": "latest",
+    "tweakpane": "latest",
+    "use-tweaks": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/three": "latest",
     "autoprefixer": "latest",
     "postcss": "latest",
     "postcss-preset-env": "latest",
