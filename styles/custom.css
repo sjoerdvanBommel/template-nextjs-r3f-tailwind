@@ -6,14 +6,23 @@ html, body, #__next {
   @apply z-[-5];
 }
 
-canvas {
-  @apply z-[-1];
-}
-
 .above-canvas {
   @apply z-[5];
 }
 
 .w-fit-content {
   width: fit-content;
+}
+
+.h-screen-responsive {
+  height: calc(100vh - calc(100vh - 100%));
+}
+
+.full-screen-absolute {
+  @apply absolute inset-0 w-screen;
+  height: calc(100vh - calc(100vh - 100%));
+}
+
+.tp-dfwv {
+  @apply z-[999];
 }

@@ -1,16 +1,10 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-import sampleUserData from '../../../utils/sample-data.json'
+import { NextApiRequest, NextApiResponse } from 'next';
 
 const handler = (_req: NextApiRequest, res: NextApiResponse) => {
-  try {
-    if (!Array.isArray(sampleUserData)) {
-      throw new Error('Cannot find user data')
-    }
-
-    res.status(200).json(sampleUserData)
-  } catch (err) {
-    res.status(500).json({ statusCode: 500, message: err.message })
-  }
+  // Delay to make it easier to implement loading screen
+  setTimeout(() => {
+    res.status(200).json([{ id: 1, name: 'Sjoerd' }, { id: 2, name: 'John' }])
+  }, 3000);
 }
 
 export default handler

@@ -14,9 +14,7 @@ const CanvasFallback = ({ onFinish }) => {
     }
   }, [])
 
-  return (
-    <></>
-  );
+  return null;
 }
 
 const ExperienceCanvas = () => {
@@ -32,21 +30,25 @@ const ExperienceCanvas = () => {
   }
 
   return (
-    <div className={`fixed inset-0 w-screen h-[calc(100vh - calc(100vh - 100%))] ${experienceLoaded ? '' : 'z-50'}`}>
-      {
-        !experienceLoaded &&
-        <div className={'transition-all duration-1000 ' + (isFadingOut ? 'opacity-0' : 'opacity-100')}>
-          <LoadingOverlay />
-        </div>
-      }
-      <Canvas>
-        <Suspense fallback={<CanvasFallback onFinish={onLoadExperience} />}>
-          <BridgeContext.Provider value={debug}>
-            <ExperienceCanvasContent />
-          </BridgeContext.Provider>
-        </Suspense>
-      </Canvas>
-    </div>
+    <>
+      <div className={`full-screen-absolute ${experienceLoaded ? 'z-1' : ''}`}>
+        <Canvas>
+          <Suspense fallback={<CanvasFallback onFinish={onLoadExperience} />}>
+            <BridgeContext.Provider value={debug}>
+              <ExperienceCanvasContent />
+            </BridgeContext.Provider>
+          </Suspense>
+        </Canvas>
+      </div>
+      <div className={`full-screen-absolute ${experienceLoaded ? 'z-[-1]' : 'z-50'}`}>
+        {
+          !experienceLoaded &&
+          <div className={`transition-all duration-1000 ${isFadingOut ? 'opacity-0' : 'opacity-100'}`}>
+            <LoadingOverlay />
+          </div>
+        }
+      </div>
+    </>
   )
 }
 
